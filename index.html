@@ -70,11 +70,11 @@
       text-transform: uppercase;
     }
 
-    .brand img {
+    .brand-mark {
       width: 44px;
-      height: auto;
+      height: 36px;
+      flex: 0 0 auto;
       display: block;
-      object-fit: contain;
     }
 
     .nav-links {
@@ -173,67 +173,57 @@
       object-fit: contain;
     }
 
-    .product-media .kit-cleaner {
-      left: 7%;
+    .product-media.single img {
+      inset: 18px;
+      width: calc(100% - 36px);
+      height: calc(100% - 36px);
+    }
+
+    .product-media.composite .cleaner {
+      left: 6%;
       top: 50%;
-      width: 30%;
-      max-height: 305px;
+      width: 29%;
+      max-height: 292px;
       transform: translateY(-50%);
     }
 
-    .product-media .kit-cleaner.blue {
+    .product-media.composite .cleaner.blue {
       width: 27%;
     }
 
-    .product-media .kit-wipes {
-      right: 5%;
+    .product-media.composite .wipes {
+      right: 4%;
       top: 50%;
-      width: 57%;
+      width: 61%;
       max-height: 270px;
       transform: translateY(-50%);
     }
 
-    .product-media.universal .kit-cleaner.green {
+    .product-media.universal .cleaner.green {
       left: 4%;
-      top: 17%;
-      width: 22%;
-      max-height: 235px;
+      top: 15%;
+      width: 23%;
+      max-height: 245px;
       transform: none;
     }
 
-    .product-media.universal .kit-cleaner.blue {
+    .product-media.universal .cleaner.blue {
       left: auto;
       right: 4%;
       top: 13%;
-      width: 20%;
-      max-height: 250px;
+      width: 21%;
+      max-height: 255px;
       transform: none;
     }
 
-    .product-media.universal .kit-wipes {
+    .product-media.universal .wipes {
       left: 50%;
       right: auto;
       top: auto;
-      bottom: 22px;
-      width: 52%;
-      max-height: 225px;
+      bottom: 18px;
+      width: 56%;
+      max-height: 226px;
       transform: translateX(-50%);
-    }
-
-    .product-media.mpo .mpo-cleaner {
-      left: 7%;
-      top: 50%;
-      width: 31%;
-      max-height: 290px;
-      transform: translateY(-50%);
-    }
-
-    .product-media.mpo .kit-wipes {
-      right: 5%;
-      top: 50%;
-      width: 57%;
-      max-height: 270px;
-      transform: translateY(-50%);
     }
 
     .product-body {
@@ -356,7 +346,7 @@
     @media (max-width: 820px) {
       .shell { width: min(100% - 28px, 680px); }
       .nav { min-height: 62px; }
-      .brand img { width: 40px; height: auto; }
+      .brand-mark { width: 40px; height: 33px; }
       .hero { padding: 54px 0 38px; }
       .product-grid { grid-template-columns: 1fr; }
       .product-media { height: 320px; }
@@ -364,7 +354,7 @@
 
     @media (max-width: 480px) {
       .brand { font-size: 10.5px; letter-spacing: .065em; }
-      .brand img { width: 37px; height: auto; }
+      .brand-mark { width: 37px; height: 31px; }
       .nav-links { font-size: 13px; }
       .hero { text-align: left; padding-top: 46px; }
       .hero p { margin-left: 0; }
@@ -428,7 +418,13 @@
   <header>
     <div class="shell nav">
       <a class="brand" href="#" aria-label="Photon Supply Co. home">
-        <img src="assets/photon-supply-logo-fixed.png" alt="" width="44" height="36" />
+        <svg class="brand-mark" viewBox="0 0 180 147" role="img" aria-label="Photon Supply Co.">
+          <circle cx="90" cy="73.5" r="61" fill="none" stroke="currentColor" stroke-width="8"/>
+          <path d="M4 65 C42 90 72 94 103 67 C130 43 148 45 176 65" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <path d="M5 76 C43 101 75 103 106 76 C132 53 151 54 177 75" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <path d="M7 87 C46 111 79 112 110 85 C136 62 154 64 176 85" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <path d="M12 98 C50 120 83 120 114 94 C139 73 157 74 172 94" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+        </svg>
         <span>Photon Supply Co.</span>
       </a>
 
@@ -453,9 +449,9 @@
 
         <div class="product-grid">
           <article class="product-card" id="kit-25">
-            <div class="product-media">
-              <img class="kit-cleaner green" src="assets/2p5mm-fixed.webp" alt="Fujikura One-Click Cleaner SC Mini" fetchpriority="high" />
-              <img class="kit-wipes" src="assets/Chemwipes-fixed.webp" alt="Chemtronics Chempad CP400 wipes" fetchpriority="high" />
+            <div class="product-media composite">
+              <img class="cleaner green" src="assets/2p5mm-fixed.webp" alt="Fujikura One-Click Cleaner SC Mini" fetchpriority="high" />
+              <img class="wipes" src="assets/Chemwipes-fixed.webp" alt="Chemtronics Chempad CP400 wipes" fetchpriority="high" />
             </div>
 
             <div class="product-body">
@@ -475,9 +471,9 @@
           </article>
 
           <article class="product-card" id="kit-125">
-            <div class="product-media">
-              <img class="kit-cleaner blue" src="assets/1p25mm-fixed.webp" alt="Fujikura One-Click Cleaner MU/LC Mini" fetchpriority="high" />
-              <img class="kit-wipes" src="assets/Chemwipes-fixed.webp" alt="Chemtronics Chempad CP400 wipes" fetchpriority="high" />
+            <div class="product-media composite">
+              <img class="cleaner blue" src="https://cdn11.bigcommerce.com/s-n7api4sljh/images/stencil/1280x1280/products/650/1776/afl-one-click-1.25-mini__77151.1604522108.1280.1280__59060.1626292518.jpg?c=1" alt="Fujikura One-Click Cleaner MU/LC Mini" fetchpriority="high" />
+              <img class="wipes" src="assets/Chemwipes-fixed.webp" alt="Chemtronics Chempad CP400 wipes" fetchpriority="high" />
             </div>
 
             <div class="product-body">
@@ -498,9 +494,9 @@
 
           <article class="product-card" id="kit-universal">
             <div class="product-media universal">
-              <img class="kit-cleaner green" src="assets/2p5mm-fixed.webp" alt="Fujikura One-Click Cleaner SC Mini" loading="lazy" />
-              <img class="kit-cleaner blue" src="assets/1p25mm-fixed.webp" alt="Fujikura One-Click Cleaner MU/LC Mini" loading="lazy" />
-              <img class="kit-wipes" src="assets/Chemwipes-fixed.webp" alt="Chemtronics Chempad CP400 wipes" loading="lazy" />
+              <img class="cleaner green" src="assets/2p5mm-fixed.webp" alt="Fujikura One-Click Cleaner SC Mini" loading="lazy" />
+              <img class="cleaner blue" src="https://cdn11.bigcommerce.com/s-n7api4sljh/images/stencil/1280x1280/products/650/1776/afl-one-click-1.25-mini__77151.1604522108.1280.1280__59060.1626292518.jpg?c=1" alt="Fujikura One-Click Cleaner MU/LC Mini" loading="lazy" />
+              <img class="wipes" src="assets/Chemwipes-fixed.webp" alt="Chemtronics Chempad CP400 wipes" loading="lazy" />
             </div>
 
             <div class="product-body">
@@ -520,9 +516,8 @@
           </article>
 
           <article class="product-card" id="kit-mpo">
-            <div class="product-media mpo">
-              <img class="mpo-cleaner" src="https://cdn11.bigcommerce.com/s-n7api4sljh/images/stencil/1280x1280/products/648/1774/dry-connector-cleaning-afl-mpo-one-click__00216.1604522108.1280.1280__65310.1626292097.jpg?c=1" alt="AFL One-Click Cleaner for MPO and MTP multi-fiber connectors" loading="lazy" />
-              <img class="kit-wipes" src="assets/Chemwipes-fixed.webp" alt="Chemtronics Chempad CP400 wipes" loading="lazy" />
+            <div class="product-media single">
+              <img src="https://cdn11.bigcommerce.com/s-n7api4sljh/images/stencil/1280x1280/products/648/1774/dry-connector-cleaning-afl-mpo-one-click__00216.1604522108.1280.1280__65310.1626292097.jpg?c=1" alt="AFL One-Click Cleaner for MPO and MTP multi-fiber connectors" loading="lazy" />
             </div>
 
             <div class="product-body">
