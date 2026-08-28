@@ -9,13 +9,14 @@
 
   <style>
     :root {
-      --bg: #f5f5f3;
+      --bg: #ffffff;
+      --catalog: #f4f4f2;
       --surface: #ffffff;
       --ink: #101010;
-      --muted: #666862;
-      --line: #ddddda;
-      --line-dark: #bdbdb7;
-      --radius: 7px;
+      --muted: #666863;
+      --line: #dcdcd8;
+      --line-dark: #b9bab5;
+      --radius: 3px;
     }
 
     * { box-sizing: border-box; }
@@ -45,12 +46,12 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: #fff;
+      background: rgba(255, 255, 255, .96);
       border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      min-height: 68px;
+      min-height: 66px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -60,17 +61,19 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       text-decoration: none;
       white-space: nowrap;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: .11em;
+      letter-spacing: .085em;
+      text-transform: uppercase;
     }
 
     .brand img {
-      width: 34px;
-      height: 34px;
+      width: 39px;
+      height: 39px;
+      display: block;
       object-fit: contain;
       filter: grayscale(1) brightness(0);
     }
@@ -78,8 +81,8 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
-      color: #4e504c;
+      gap: 22px;
+      color: #4f514d;
       font-size: 14px;
       font-weight: 600;
     }
@@ -88,38 +91,79 @@
       text-decoration: none;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
       color: #000;
     }
 
     .hero {
-      padding: 88px 0 58px;
+      padding: 62px 0 46px;
       text-align: center;
     }
 
     h1 {
       margin: 0 auto;
-      max-width: 860px;
-      font-size: clamp(48px, 7vw, 78px);
+      max-width: 840px;
+      font-size: clamp(46px, 6.5vw, 72px);
       line-height: 1;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.047em;
       font-weight: 700;
     }
 
     .hero p {
-      max-width: 650px;
-      margin: 21px auto 0;
+      max-width: 610px;
+      margin: 17px auto 0;
       color: var(--muted);
-      font-size: clamp(17px, 2vw, 20px);
+      font-size: clamp(16px, 1.7vw, 19px);
       line-height: 1.45;
     }
 
-    .products-section {
-      padding: 10px 0 86px;
+    .connector-nav {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .connector-nav__inner {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .connector-nav__inner::-webkit-scrollbar { display: none; }
+
+    .connector-nav a {
+      flex: 0 0 auto;
+      padding: 17px 23px;
+      color: #5c5e59;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      border-right: 1px solid var(--line);
+    }
+
+    .connector-nav a:first-child {
+      border-left: 1px solid var(--line);
+    }
+
+    .connector-nav a:hover,
+    .connector-nav a:focus-visible {
+      color: #000;
+      background: #fafafa;
+    }
+
+    .catalog {
+      padding: 34px 0 82px;
+      background: var(--catalog);
     }
 
     .section-head {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       display: flex;
       align-items: end;
       justify-content: space-between;
@@ -128,7 +172,7 @@
 
     .section-head h2 {
       margin: 0;
-      font-size: 26px;
+      font-size: 25px;
       line-height: 1.1;
       letter-spacing: -0.025em;
       font-weight: 700;
@@ -137,7 +181,7 @@
     .product-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 14px;
     }
 
     .product-card {
@@ -156,11 +200,11 @@
     }
 
     .product-media {
-      height: 345px;
+      height: 382px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
+      gap: 4px;
       overflow: hidden;
       background: #fff;
       border-bottom: 1px solid var(--line);
@@ -168,81 +212,87 @@
 
     .product-media img {
       display: block;
-      max-width: 61%;
-      max-height: 265px;
+      max-width: 67%;
+      max-height: 300px;
       object-fit: contain;
       mix-blend-mode: multiply;
     }
 
     .product-media .wipe-box {
-      max-width: 29%;
-      max-height: 135px;
-      margin-left: -15px;
+      max-width: 25%;
+      max-height: 128px;
+      margin-left: -16px;
       align-self: flex-end;
-      margin-bottom: 46px;
+      margin-bottom: 48px;
     }
 
     .product-media.dual img.cleaner {
-      max-width: 36%;
-      max-height: 238px;
+      max-width: 38%;
+      max-height: 270px;
     }
 
     .product-media.dual .wipe-box {
-      max-width: 23%;
-      max-height: 112px;
-      margin-left: -16px;
+      max-width: 20%;
+      max-height: 104px;
+      margin-left: -19px;
+      margin-bottom: 52px;
     }
 
     .product-body {
-      padding: 23px 24px 24px;
+      padding: 21px 22px 22px;
       display: flex;
       flex: 1;
       flex-direction: column;
     }
 
     .connector {
-      color: #686a65;
-      font-size: 11px;
+      color: #71736d;
+      font-size: 10.5px;
       line-height: 1;
-      letter-spacing: .08em;
+      letter-spacing: .09em;
       text-transform: uppercase;
       font-weight: 700;
     }
 
     .product-title {
-      margin: 9px 0 18px;
-      font-size: 23px;
-      line-height: 1.14;
-      letter-spacing: -0.025em;
+      margin: 8px 0 16px;
+      font-size: 22px;
+      line-height: 1.15;
+      letter-spacing: -0.022em;
       font-weight: 700;
     }
 
-    .includes {
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 7px;
-      list-style: none;
-      color: #454742;
+    .specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px 14px;
+      color: #484a45;
       font-size: 13px;
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
-    .spec-note {
-      margin-top: 18px;
-      color: #8a8c86;
+    .specs span + span::before {
+      content: "·";
+      margin-right: 14px;
+      color: #a3a49f;
+    }
+
+    .part-note {
+      margin-top: 13px;
+      color: #898b85;
       font-size: 10px;
       line-height: 1.4;
     }
 
-    .spec-note a {
+    .part-note a {
       color: #555752;
       text-underline-offset: 2px;
     }
 
     .price-row {
-      margin-top: auto;
-      padding-top: 24px;
+      margin-top: 21px;
+      padding-top: 18px;
+      border-top: 1px solid #ecece9;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -260,7 +310,7 @@
       min-width: 112px;
       padding: 12px 17px;
       border: 1px solid #111;
-      border-radius: 4px;
+      border-radius: 2px;
       background: #111;
       color: #fff;
       text-decoration: none;
@@ -278,16 +328,17 @@
 
     .buy-button[aria-disabled="true"] {
       cursor: default;
-      border-color: #d3d3cf;
-      background: #ecece9;
-      color: #777973;
+      border-color: #d1d2ce;
+      background: #eeeeeb;
+      color: #74766f;
     }
 
     footer {
-      padding: 24px 0 34px;
+      padding: 23px 0 32px;
       border-top: 1px solid var(--line);
       color: #73756f;
       font-size: 12px;
+      background: #fff;
     }
 
     .footer-row {
@@ -300,27 +351,34 @@
     .footer-brand {
       color: var(--ink);
       font-weight: 700;
-      letter-spacing: .08em;
+      letter-spacing: .07em;
       text-transform: uppercase;
     }
 
     @media (max-width: 820px) {
       .shell { width: min(100% - 28px, 680px); }
       .nav { min-height: 62px; }
-      .hero { padding: 70px 0 44px; }
+      .brand img { width: 35px; height: 35px; }
+      .hero { padding: 54px 0 38px; }
+      .connector-nav__inner { justify-content: flex-start; }
       .product-grid { grid-template-columns: 1fr; }
-      .product-media { height: 300px; }
+      .product-media { height: 330px; }
     }
 
     @media (max-width: 480px) {
-      .brand { font-size: 11px; letter-spacing: .08em; }
-      .brand img { width: 30px; height: 30px; }
-      .hero { text-align: left; padding-top: 58px; }
+      .brand { font-size: 10.5px; letter-spacing: .065em; }
+      .brand img { width: 33px; height: 33px; }
+      .nav-links { font-size: 13px; }
+      .hero { text-align: left; padding-top: 46px; }
       .hero p { margin-left: 0; }
-      .product-body { padding: 21px; }
+      .connector-nav a { padding: 15px 18px; }
+      .catalog { padding-top: 26px; }
+      .product-body { padding: 20px; }
       .price-row { align-items: flex-start; flex-direction: column; }
       .buy-button { width: 100%; padding: 14px 18px; }
-      .product-media { height: 265px; }
+      .product-media { height: 285px; }
+      .specs { gap: 6px 10px; }
+      .specs span + span::before { margin-right: 10px; }
     }
   </style>
 
@@ -374,8 +432,8 @@
   <header>
     <div class="shell nav">
       <a class="brand" href="#" aria-label="Photon Supply Co. home">
-        <img src="assets/photon-supply-logo.png" alt="" width="34" height="34" />
-        <span>PHOTON SUPPLY CO.</span>
+        <img src="assets/photon-supply-logo.png" alt="" width="39" height="39" />
+        <span>Photon Supply Co.</span>
       </a>
 
       <nav class="nav-links" aria-label="Primary navigation">
@@ -387,170 +445,181 @@
   <main>
     <section class="hero shell">
       <h1>Fiber cleaning, simplified.</h1>
-      <p>Professional kits for SC, ST, FC, LC, MU, MPO and MTP.</p>
+      <p>Connector cleaning kits for field, lab, and production.</p>
     </section>
 
-    <section class="products-section shell" id="products">
-      <div class="section-head">
-        <h2>Fiber cleaning kits</h2>
+    <nav class="connector-nav" aria-label="Shop by connector">
+      <div class="shell connector-nav__inner">
+        <a href="#kit-25">2.5 mm</a>
+        <a href="#kit-125">1.25 mm</a>
+        <a href="#kit-universal">Universal</a>
+        <a href="#kit-mpo">MPO / MTP</a>
       </div>
+    </nav>
 
-      <div class="product-grid">
-        <article class="product-card" id="kit-25">
-          <div class="product-media">
-            <img
-              src="https://afl-delivery.stylelabs.cloud/api/public/content/5b61d31027074e7586135bd898990cc9?v=0817dcb0"
-              alt="AFL One-Click Cleaner Mini-500 for SC, ST and FC connectors"
-              width="800"
-              height="800"
-              fetchpriority="high"
-            />
-            <img
-              class="wipe-box"
-              src="https://www.chemtronics.com/content/images/thumbs/0000919_chempad-alcohol-wipes_300.jpeg"
-              alt="Chemtronics Chempad CP400 alcohol wipes"
-              width="300"
-              height="200"
-            />
-          </div>
+    <section class="catalog" id="products">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Fiber cleaning kits</h2>
+        </div>
 
-          <div class="product-body">
-            <div class="connector">2.5 mm · SC / ST / FC</div>
-            <h3 class="product-title">2.5 mm Fiber Cleaning Kit</h3>
-            <ul class="includes">
-              <li>AFL One-Click Mini-500</li>
-              <li>50 Chemtronics CP400 wipes</li>
-            </ul>
-            <div class="spec-note">
-              AFL 8500-05-0009MZ · CP400 ·
-              <a href="https://www.aflglobal.com/en/products/test-and-inspection/fiber-inspection-and-cleaning/fiber-optic-cleaning/one-click-cleaner-mini" target="_blank" rel="noreferrer">Specs</a>
+        <div class="product-grid">
+          <article class="product-card" id="kit-25">
+            <div class="product-media">
+              <img
+                src="https://afl-delivery.stylelabs.cloud/api/public/content/5b61d31027074e7586135bd898990cc9?v=0817dcb0"
+                alt="AFL One-Click Cleaner Mini-500 for SC, ST and FC connectors"
+                width="800"
+                height="800"
+                fetchpriority="high"
+              />
+              <img
+                class="wipe-box"
+                src="https://www.chemtronics.com/content/images/thumbs/0000919_chempad-alcohol-wipes_300.jpeg"
+                alt="Chemtronics Chempad CP400 alcohol wipes"
+                width="300"
+                height="200"
+              />
             </div>
 
-            <div class="price-row">
-              <div class="price">$129.95</div>
-              <a class="buy-button" data-checkout="kit25" href="#" aria-disabled="true">Coming soon</a>
+            <div class="product-body">
+              <div class="connector">2.5 mm · SC / ST / FC</div>
+              <h3 class="product-title">2.5 mm Fiber Cleaning Kit</h3>
+              <div class="specs">
+                <span>500 cleans</span>
+                <span>50 wipes</span>
+              </div>
+              <div class="part-note">
+                AFL 8500-05-0009MZ · CP400 ·
+                <a href="https://www.aflglobal.com/en/products/test-and-inspection/fiber-inspection-and-cleaning/fiber-optic-cleaning/one-click-cleaner-mini" target="_blank" rel="noreferrer">AFL specs</a>
+              </div>
+
+              <div class="price-row">
+                <div class="price">$129.95</div>
+                <a class="buy-button" data-checkout="kit25" href="#" aria-disabled="true">Coming soon</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="product-card" id="kit-125">
-          <div class="product-media">
-            <img
-              src="https://cdn11.bigcommerce.com/s-n7api4sljh/images/stencil/1280x1280/products/650/1776/afl-one-click-1.25-mini__77151.1604522108.1280.1280__59060.1626292518.jpg?c=1"
-              alt="AFL One-Click Cleaner Mini-500 for LC and MU connectors"
-              width="1000"
-              height="1000"
-              fetchpriority="high"
-            />
-            <img
-              class="wipe-box"
-              src="https://www.chemtronics.com/content/images/thumbs/0000919_chempad-alcohol-wipes_300.jpeg"
-              alt="Chemtronics Chempad CP400 alcohol wipes"
-              width="300"
-              height="200"
-            />
-          </div>
-
-          <div class="product-body">
-            <div class="connector">1.25 mm · LC / MU</div>
-            <h3 class="product-title">1.25 mm Fiber Cleaning Kit</h3>
-            <ul class="includes">
-              <li>AFL One-Click Mini-500</li>
-              <li>50 Chemtronics CP400 wipes</li>
-            </ul>
-            <div class="spec-note">
-              AFL 8500-05-0010MZ · CP400 ·
-              <a href="https://www.aflglobal.com/en/products/test-and-inspection/fiber-inspection-and-cleaning/fiber-optic-cleaning/one-click-cleaner-mini" target="_blank" rel="noreferrer">Specs</a>
-            </div>
-
-            <div class="price-row">
-              <div class="price">$129.95</div>
-              <a class="buy-button" data-checkout="kit125" href="#" aria-disabled="true">Coming soon</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" id="kit-universal">
-          <div class="product-media dual">
-            <img
-              class="cleaner"
-              src="https://afl-delivery.stylelabs.cloud/api/public/content/5b61d31027074e7586135bd898990cc9?v=0817dcb0"
-              alt="AFL One-Click Cleaner Mini-500 for SC, ST and FC connectors"
-              width="800"
-              height="800"
-              loading="lazy"
-            />
-            <img
-              class="cleaner"
-              src="https://cdn11.bigcommerce.com/s-n7api4sljh/images/stencil/1280x1280/products/650/1776/afl-one-click-1.25-mini__77151.1604522108.1280.1280__59060.1626292518.jpg?c=1"
-              alt="AFL One-Click Cleaner Mini-500 for LC and MU connectors"
-              width="1000"
-              height="1000"
-              loading="lazy"
-            />
-            <img
-              class="wipe-box"
-              src="https://www.chemtronics.com/content/images/thumbs/0000919_chempad-alcohol-wipes_300.jpeg"
-              alt="Chemtronics Chempad CP400 alcohol wipes"
-              width="300"
-              height="200"
-              loading="lazy"
-            />
-          </div>
-
-          <div class="product-body">
-            <div class="connector">2.5 mm + 1.25 mm</div>
-            <h3 class="product-title">Universal Fiber Cleaning Kit</h3>
-            <ul class="includes">
-              <li>2× AFL One-Click Mini-500</li>
-              <li>50 Chemtronics CP400 wipes</li>
-            </ul>
-            <div class="spec-note">AFL 8500-05-0009MZ + 8500-05-0010MZ · CP400</div>
-
-            <div class="price-row">
-              <div class="price">$199.95</div>
-              <a class="buy-button" data-checkout="universal" href="#" aria-disabled="true">Coming soon</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" id="kit-mpo">
-          <div class="product-media">
-            <img
-              src="https://cdn11.bigcommerce.com/s-n7api4sljh/images/stencil/1280x1280/products/648/1774/dry-connector-cleaning-afl-mpo-one-click__00216.1604522108.1280.1280__65310.1626292097.jpg?c=1"
-              alt="AFL One-Click Cleaner for MPO and MTP multi-fiber connectors"
-              width="1000"
-              height="1000"
-              loading="lazy"
-            />
-            <img
-              class="wipe-box"
-              src="https://www.chemtronics.com/content/images/thumbs/0000919_chempad-alcohol-wipes_300.jpeg"
-              alt="Chemtronics Chempad CP400 alcohol wipes"
-              width="300"
-              height="200"
-              loading="lazy"
-            />
-          </div>
-
-          <div class="product-body">
-            <div class="connector">Multi-fiber · MPO / MTP</div>
-            <h3 class="product-title">MPO/MTP Cleaning Kit</h3>
-            <ul class="includes">
-              <li>AFL One-Click MPO/MTP cleaner</li>
-              <li>50 Chemtronics CP400 wipes</li>
-            </ul>
-            <div class="spec-note">
-              AFL 8500-05-0030MZ · CP400 ·
-              <a href="https://www.aflglobal.com/en/products/test-and-inspection/fiber-inspection-and-cleaning/fiber-optic-cleaning/one-click-cleaner-mpo--mpo-16" target="_blank" rel="noreferrer">Specs</a>
+          <article class="product-card" id="kit-125">
+            <div class="product-media">
+              <img
+                src="https://cdn11.bigcommerce.com/s-n7api4sljh/images/stencil/1280x1280/products/650/1776/afl-one-click-1.25-mini__77151.1604522108.1280.1280__59060.1626292518.jpg?c=1"
+                alt="AFL One-Click Cleaner Mini-500 for LC and MU connectors"
+                width="1000"
+                height="1000"
+                fetchpriority="high"
+              />
+              <img
+                class="wipe-box"
+                src="https://www.chemtronics.com/content/images/thumbs/0000919_chempad-alcohol-wipes_300.jpeg"
+                alt="Chemtronics Chempad CP400 alcohol wipes"
+                width="300"
+                height="200"
+              />
             </div>
 
-            <div class="price-row">
-              <div class="price">$134.95</div>
-              <a class="buy-button" data-checkout="mpo" href="#" aria-disabled="true">Coming soon</a>
+            <div class="product-body">
+              <div class="connector">1.25 mm · LC / MU</div>
+              <h3 class="product-title">1.25 mm Fiber Cleaning Kit</h3>
+              <div class="specs">
+                <span>500 cleans</span>
+                <span>50 wipes</span>
+              </div>
+              <div class="part-note">
+                AFL 8500-05-0010MZ · CP400 ·
+                <a href="https://www.aflglobal.com/en/products/test-and-inspection/fiber-inspection-and-cleaning/fiber-optic-cleaning/one-click-cleaner-mini" target="_blank" rel="noreferrer">AFL specs</a>
+              </div>
+
+              <div class="price-row">
+                <div class="price">$129.95</div>
+                <a class="buy-button" data-checkout="kit125" href="#" aria-disabled="true">Coming soon</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+
+          <article class="product-card" id="kit-universal">
+            <div class="product-media dual">
+              <img
+                class="cleaner"
+                src="https://afl-delivery.stylelabs.cloud/api/public/content/5b61d31027074e7586135bd898990cc9?v=0817dcb0"
+                alt="AFL One-Click Cleaner Mini-500 for SC, ST and FC connectors"
+                width="800"
+                height="800"
+                loading="lazy"
+              />
+              <img
+                class="cleaner"
+                src="https://cdn11.bigcommerce.com/s-n7api4sljh/images/stencil/1280x1280/products/650/1776/afl-one-click-1.25-mini__77151.1604522108.1280.1280__59060.1626292518.jpg?c=1"
+                alt="AFL One-Click Cleaner Mini-500 for LC and MU connectors"
+                width="1000"
+                height="1000"
+                loading="lazy"
+              />
+              <img
+                class="wipe-box"
+                src="https://www.chemtronics.com/content/images/thumbs/0000919_chempad-alcohol-wipes_300.jpeg"
+                alt="Chemtronics Chempad CP400 alcohol wipes"
+                width="300"
+                height="200"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="product-body">
+              <div class="connector">2.5 mm + 1.25 mm</div>
+              <h3 class="product-title">Universal Fiber Cleaning Kit</h3>
+              <div class="specs">
+                <span>2 cleaners</span>
+                <span>50 wipes</span>
+              </div>
+              <div class="part-note">AFL 8500-05-0009MZ + 8500-05-0010MZ · CP400</div>
+
+              <div class="price-row">
+                <div class="price">$199.95</div>
+                <a class="buy-button" data-checkout="universal" href="#" aria-disabled="true">Coming soon</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" id="kit-mpo">
+            <div class="product-media">
+              <img
+                src="https://cdn11.bigcommerce.com/s-n7api4sljh/images/stencil/1280x1280/products/648/1774/dry-connector-cleaning-afl-mpo-one-click__00216.1604522108.1280.1280__65310.1626292097.jpg?c=1"
+                alt="AFL One-Click Cleaner for MPO and MTP multi-fiber connectors"
+                width="1000"
+                height="1000"
+                loading="lazy"
+              />
+              <img
+                class="wipe-box"
+                src="https://www.chemtronics.com/content/images/thumbs/0000919_chempad-alcohol-wipes_300.jpeg"
+                alt="Chemtronics Chempad CP400 alcohol wipes"
+                width="300"
+                height="200"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="product-body">
+              <div class="connector">Multi-fiber · MPO / MTP</div>
+              <h3 class="product-title">MPO/MTP Cleaning Kit</h3>
+              <div class="specs">
+                <span>500+ cleans</span>
+                <span>50 wipes</span>
+              </div>
+              <div class="part-note">
+                AFL 8500-05-0030MZ · CP400 ·
+                <a href="https://www.aflglobal.com/en/products/test-and-inspection/fiber-inspection-and-cleaning/fiber-optic-cleaning/one-click-cleaner-mpo--mpo-16" target="_blank" rel="noreferrer">AFL specs</a>
+              </div>
+
+              <div class="price-row">
+                <div class="price">$134.95</div>
+                <a class="buy-button" data-checkout="mpo" href="#" aria-disabled="true">Coming soon</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>
