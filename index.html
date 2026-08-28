@@ -6,16 +6,19 @@
   <meta name="description" content="Professional fiber cleaning kits built around trusted Fujikura, AFL, and Chemtronics products." />
   <meta name="theme-color" content="#ffffff" />
   <title>Photon Supply Co. | Fiber & Photonics Essentials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       --bg: #ffffff;
-      --catalog: #f4f4f2;
+      --catalog: #f6f6f3;
       --surface: #ffffff;
       --ink: #101010;
-      --muted: #666863;
-      --line: #dcdcd8;
-      --line-dark: #b9bab5;
+      --muted: #646660;
+      --line: #e6e6e1;
+      --line-dark: #c7c8c2;
       --radius: 3px;
     }
 
@@ -30,7 +33,7 @@
       margin: 0;
       color: var(--ink);
       background: var(--bg);
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: "IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -65,8 +68,8 @@
       text-decoration: none;
       white-space: nowrap;
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .085em;
+      font-weight: 600;
+      letter-spacing: .075em;
       text-transform: uppercase;
     }
 
@@ -83,7 +86,7 @@
       gap: 22px;
       color: #4f514d;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .nav-links a {
@@ -106,7 +109,7 @@
       font-size: clamp(46px, 6.5vw, 72px);
       line-height: 1;
       letter-spacing: -0.047em;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .hero p {
@@ -117,8 +120,18 @@
       line-height: 1.45;
     }
 
+    .trust-line {
+      margin-top: -10px;
+      padding: 0 0 34px;
+      text-align: center;
+      color: #7a7c76;
+      font-size: 12px;
+      line-height: 1.4;
+      letter-spacing: .015em;
+    }
+
     .catalog {
-      padding: 34px 0 82px;
+      padding: 32px 0 84px;
       background: var(--catalog);
     }
 
@@ -135,7 +148,7 @@
       font-size: 25px;
       line-height: 1.1;
       letter-spacing: -0.025em;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .product-grid {
@@ -152,22 +165,23 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--surface);
-      transition: border-color .16s ease;
+      transition: border-color .18s ease, transform .18s ease;
     }
 
     .product-card:hover {
       border-color: var(--line-dark);
+      transform: translateY(-2px);
     }
 
     .product-media {
-      height: 350px;
+      height: 382px;
       overflow: hidden;
-      background: #fff;
+      background: #fafaf7;
       border-bottom: 1px solid var(--line);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 18px;
+      padding: 10px;
     }
 
     .product-media img {
@@ -175,6 +189,11 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+      transition: transform .22s ease;
+    }
+
+    .product-card:hover .product-media img {
+      transform: scale(1.008);
     }
 
     .product-body {
@@ -185,12 +204,12 @@
     }
 
     .connector {
-      color: #71736d;
+      color: #777972;
       font-size: 10.5px;
       line-height: 1;
-      letter-spacing: .09em;
+      letter-spacing: .11em;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .product-title {
@@ -198,22 +217,20 @@
       font-size: 22px;
       line-height: 1.15;
       letter-spacing: -0.022em;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .specs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px 14px;
-      color: #484a45;
-      font-size: 13px;
+      display: grid;
+      gap: 5px;
+      min-height: 41px;
+      color: #555750;
+      font-size: 12.5px;
       line-height: 1.35;
     }
 
-    .specs span + span::before {
-      content: "·";
-      margin-right: 14px;
-      color: #a3a49f;
+    .specs span:last-child {
+      color: #777972;
     }
 
     .part-note {
@@ -229,7 +246,7 @@
     }
 
     .price-row {
-      margin-top: 21px;
+      margin-top: auto;
       padding-top: 18px;
       border-top: 1px solid #ecece9;
       display: flex;
@@ -242,7 +259,7 @@
       font-size: 29px;
       line-height: 1;
       letter-spacing: -0.035em;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .buy-button {
@@ -256,7 +273,7 @@
       text-align: center;
       font-size: 13px;
       line-height: 1;
-      font-weight: 700;
+      font-weight: 600;
       transition: background .15s ease, color .15s ease;
     }
 
@@ -289,8 +306,8 @@
 
     .footer-brand {
       color: var(--ink);
-      font-weight: 700;
-      letter-spacing: .07em;
+      font-weight: 600;
+      letter-spacing: .065em;
       text-transform: uppercase;
     }
 
@@ -300,7 +317,7 @@
       .brand-mark { width: 40px; height: 40px; }
       .hero { padding: 54px 0 38px; }
       .product-grid { grid-template-columns: 1fr; }
-      .product-media { height: 320px; }
+      .product-media { height: 342px; }
     }
 
     @media (max-width: 480px) {
@@ -313,9 +330,9 @@
       .product-body { padding: 20px; }
       .price-row { align-items: flex-start; flex-direction: column; }
       .buy-button { width: 100%; padding: 14px 18px; }
-      .product-media { height: 280px; }
-      .specs { gap: 6px 10px; }
-      .specs span + span::before { margin-right: 10px; }
+      .product-media { height: 300px; }
+      .trust-line { text-align: left; padding-bottom: 28px; }
+      .specs { min-height: 0; }
     }
   </style>
 
@@ -385,6 +402,7 @@
       <p>Trusted cleaning tools, bundled for the connector you use.</p>
     </section>
 
+    <div class="trust-line shell">Built around proven Fujikura, Chemtronics, and AFL cleaning products.</div>
 
     <section class="catalog" id="products">
       <div class="shell">
@@ -399,11 +417,11 @@
             </div>
 
             <div class="product-body">
-              <div class="connector">SC, ST &amp; FC connectors</div>
+              <div class="connector">SC / ST / FC</div>
               <h3 class="product-title">2.5 mm Connector Cleaning Kit</h3>
               <div class="specs">
                 <span>Fujikura One-Click + 50 Chemtronics wipes</span>
-                <span>Up to 500 connector cleans</span>
+                <span>Up to 500 cleans</span>
               </div>
 
               <div class="price-row">
@@ -419,7 +437,7 @@
             </div>
 
             <div class="product-body">
-              <div class="connector">LC &amp; MU connectors</div>
+              <div class="connector">LC / MU</div>
               <h3 class="product-title">1.25 mm Connector Cleaning Kit</h3>
               <div class="specs">
                 <span>Fujikura One-Click + 50 Chemtronics wipes</span>
@@ -439,7 +457,7 @@
             </div>
 
             <div class="product-body">
-              <div class="connector">1.25 mm + 2.5 mm connectors</div>
+              <div class="connector">1.25 mm + 2.5 mm</div>
               <h3 class="product-title">Universal Connector Cleaning Kit</h3>
               <div class="specs">
                 <span>Both Fujikura cleaners + 50 Chemtronics wipes</span>
@@ -459,11 +477,11 @@
             </div>
 
             <div class="product-body">
-              <div class="connector">MPO &amp; MTP multi-fiber connectors</div>
+              <div class="connector">MPO / MTP</div>
               <h3 class="product-title">MPO/MTP Connector Cleaning Kit</h3>
               <div class="specs">
                 <span>AFL One-Click + 50 Chemtronics wipes</span>
-                <span>500+ connector cleans</span>
+                <span>500+ cleans</span>
               </div>
 
               <div class="price-row">
