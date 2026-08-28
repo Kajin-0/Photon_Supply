@@ -71,8 +71,8 @@
     }
 
     .brand img {
-      width: 39px;
-      height: 39px;
+      width: 44px;
+      height: auto;
       display: block;
       object-fit: contain;
     }
@@ -115,45 +115,6 @@
       color: var(--muted);
       font-size: clamp(16px, 1.7vw, 19px);
       line-height: 1.45;
-    }
-
-    .connector-nav {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: #fff;
-    }
-
-    .connector-nav__inner {
-      min-height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .connector-nav__inner::-webkit-scrollbar { display: none; }
-
-    .connector-nav a {
-      flex: 0 0 auto;
-      padding: 17px 23px;
-      color: #5c5e59;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      white-space: nowrap;
-      border-right: 1px solid var(--line);
-    }
-
-    .connector-nav a:first-child {
-      border-left: 1px solid var(--line);
-    }
-
-    .connector-nav a:hover,
-    .connector-nav a:focus-visible {
-      color: #000;
-      background: #fafafa;
     }
 
     .catalog {
@@ -199,41 +160,80 @@
     }
 
     .product-media {
-      height: 382px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
+      height: 350px;
+      position: relative;
       overflow: hidden;
       background: #fff;
       border-bottom: 1px solid var(--line);
     }
 
     .product-media img {
+      position: absolute;
       display: block;
-      max-width: 67%;
-      max-height: 300px;
       object-fit: contain;
     }
 
-    .product-media .wipe-box {
-      max-width: 25%;
-      max-height: 128px;
-      margin-left: -16px;
-      align-self: flex-end;
-      margin-bottom: 48px;
+    .product-media .kit-cleaner {
+      left: 7%;
+      top: 50%;
+      width: 30%;
+      max-height: 305px;
+      transform: translateY(-50%);
     }
 
-    .product-media.dual img.cleaner {
-      max-width: 38%;
+    .product-media .kit-cleaner.blue {
+      width: 27%;
+    }
+
+    .product-media .kit-wipes {
+      right: 5%;
+      top: 50%;
+      width: 57%;
       max-height: 270px;
+      transform: translateY(-50%);
     }
 
-    .product-media.dual .wipe-box {
-      max-width: 20%;
-      max-height: 104px;
-      margin-left: -19px;
-      margin-bottom: 52px;
+    .product-media.universal .kit-cleaner.green {
+      left: 4%;
+      top: 17%;
+      width: 22%;
+      max-height: 235px;
+      transform: none;
+    }
+
+    .product-media.universal .kit-cleaner.blue {
+      left: auto;
+      right: 4%;
+      top: 13%;
+      width: 20%;
+      max-height: 250px;
+      transform: none;
+    }
+
+    .product-media.universal .kit-wipes {
+      left: 50%;
+      right: auto;
+      top: auto;
+      bottom: 22px;
+      width: 52%;
+      max-height: 225px;
+      transform: translateX(-50%);
+    }
+
+    .product-media.mpo .mpo-cleaner {
+      left: 7%;
+      top: 50%;
+      width: 31%;
+      max-height: 290px;
+      transform: translateY(-50%);
+    }
+
+    .product-media.mpo .kit-wipes {
+      right: 5%;
+      top: 50%;
+      width: 57%;
+      max-height: 270px;
+      transform: translateY(-50%);
     }
 
     .product-body {
@@ -356,25 +356,23 @@
     @media (max-width: 820px) {
       .shell { width: min(100% - 28px, 680px); }
       .nav { min-height: 62px; }
-      .brand img { width: 35px; height: 35px; }
+      .brand img { width: 40px; height: auto; }
       .hero { padding: 54px 0 38px; }
-      .connector-nav__inner { justify-content: flex-start; }
       .product-grid { grid-template-columns: 1fr; }
-      .product-media { height: 330px; }
+      .product-media { height: 320px; }
     }
 
     @media (max-width: 480px) {
       .brand { font-size: 10.5px; letter-spacing: .065em; }
-      .brand img { width: 33px; height: 33px; }
+      .brand img { width: 37px; height: auto; }
       .nav-links { font-size: 13px; }
       .hero { text-align: left; padding-top: 46px; }
       .hero p { margin-left: 0; }
-      .connector-nav a { padding: 15px 18px; }
       .catalog { padding-top: 26px; }
       .product-body { padding: 20px; }
       .price-row { align-items: flex-start; flex-direction: column; }
       .buy-button { width: 100%; padding: 14px 18px; }
-      .product-media { height: 285px; }
+      .product-media { height: 280px; }
       .specs { gap: 6px 10px; }
       .specs span + span::before { margin-right: 10px; }
     }
@@ -394,7 +392,7 @@
         "name": "Fiber Cleaning Essentials — 2.5 mm",
         "sku": "PSC-FCE-25",
         "brand": {"@type":"Brand","name":"Photon Supply Co."},
-        "description": "Fiber connector cleaning bundle for SC, ST and FC connectors with an AFL One-Click Mini-500 and 50 individually wrapped Chemtronics Chempad wipes.",
+        "description": "Fiber connector cleaning bundle for SC, ST and FC connectors with a Fujikura One-Click Cleaner SC Mini and 50 individually wrapped Chemtronics Chempad wipes.",
         "offers": {"@type":"Offer","priceCurrency":"USD","price":"129.95"}
       },
       {
@@ -402,7 +400,7 @@
         "name": "Fiber Cleaning Essentials — 1.25 mm",
         "sku": "PSC-FCE-125",
         "brand": {"@type":"Brand","name":"Photon Supply Co."},
-        "description": "Fiber connector cleaning bundle for LC and MU connectors with an AFL One-Click Mini-500 and 50 individually wrapped Chemtronics Chempad wipes.",
+        "description": "Fiber connector cleaning bundle for LC and MU connectors with a Fujikura One-Click Cleaner MU/LC Mini and 50 individually wrapped Chemtronics Chempad wipes.",
         "offers": {"@type":"Offer","priceCurrency":"USD","price":"129.95"}
       },
       {
@@ -410,7 +408,7 @@
         "name": "Universal Fiber Cleaning Kit",
         "sku": "PSC-UFC",
         "brand": {"@type":"Brand","name":"Photon Supply Co."},
-        "description": "General-purpose fiber connector cleaning bundle covering SC, ST, FC, LC and MU connectors, plus 50 individually wrapped Chemtronics Chempad wipes.",
+        "description": "General-purpose fiber connector cleaning bundle with Fujikura SC Mini and MU/LC Mini cleaners, plus 50 individually wrapped Chemtronics Chempad wipes.",
         "offers": {"@type":"Offer","priceCurrency":"USD","price":"199.95"}
       },
       {
@@ -430,7 +428,7 @@
   <header>
     <div class="shell nav">
       <a class="brand" href="#" aria-label="Photon Supply Co. home">
-        <img src="assets/photon-supply-logo.png" alt="" width="39" height="39" />
+        <img src="assets/photon-supply-logo-fixed.png" alt="" width="44" height="36" />
         <span>Photon Supply Co.</span>
       </a>
 
@@ -446,14 +444,6 @@
       <p>Connector cleaning kits for field, lab, and production.</p>
     </section>
 
-    <nav class="connector-nav" aria-label="Shop by connector">
-      <div class="shell connector-nav__inner">
-        <a href="#kit-25">2.5 mm</a>
-        <a href="#kit-125">1.25 mm</a>
-        <a href="#kit-universal">Universal</a>
-        <a href="#kit-mpo">MPO / MTP</a>
-      </div>
-    </nav>
 
     <section class="catalog" id="products">
       <div class="shell">
@@ -464,20 +454,8 @@
         <div class="product-grid">
           <article class="product-card" id="kit-25">
             <div class="product-media">
-              <img
-                src="assets/2p5mm.webp"
-                alt="Fujikura One-Click Cleaner SC Mini for SC, ST and FC connectors"
-                width="800"
-                height="800"
-                fetchpriority="high"
-              />
-              <img
-                class="wipe-box"
-                src="assets/Chemwipes.webp"
-                alt="Chemtronics Chempad CP400 alcohol wipes"
-                width="300"
-                height="200"
-              />
+              <img class="kit-cleaner green" src="assets/2p5mm-fixed.webp" alt="Fujikura One-Click Cleaner SC Mini" fetchpriority="high" />
+              <img class="kit-wipes" src="assets/Chemwipes-fixed.webp" alt="Chemtronics Chempad CP400 wipes" fetchpriority="high" />
             </div>
 
             <div class="product-body">
@@ -487,10 +465,7 @@
                 <span>500 cleans</span>
                 <span>50 wipes</span>
               </div>
-              <div class="part-note">
-                AFL 8500-05-0009MZ · CP400 ·
-                <a href="https://www.aflglobal.com/en/products/test-and-inspection/fiber-inspection-and-cleaning/fiber-optic-cleaning/one-click-cleaner-mini" target="_blank" rel="noreferrer">AFL specs</a>
-              </div>
+              <div class="part-note">Fujikura One-Click Cleaner SC Mini · Chemtronics CP400</div>
 
               <div class="price-row">
                 <div class="price">$129.95</div>
@@ -501,20 +476,8 @@
 
           <article class="product-card" id="kit-125">
             <div class="product-media">
-              <img
-                src="assets/1p25mm.webp"
-                alt="Fujikura One-Click Cleaner MU/LC Mini for LC and MU connectors"
-                width="1000"
-                height="1000"
-                fetchpriority="high"
-              />
-              <img
-                class="wipe-box"
-                src="assets/Chemwipes.webp"
-                alt="Chemtronics Chempad CP400 alcohol wipes"
-                width="300"
-                height="200"
-              />
+              <img class="kit-cleaner blue" src="assets/1p25mm-fixed.webp" alt="Fujikura One-Click Cleaner MU/LC Mini" fetchpriority="high" />
+              <img class="kit-wipes" src="assets/Chemwipes-fixed.webp" alt="Chemtronics Chempad CP400 wipes" fetchpriority="high" />
             </div>
 
             <div class="product-body">
@@ -524,10 +487,7 @@
                 <span>500 cleans</span>
                 <span>50 wipes</span>
               </div>
-              <div class="part-note">
-                AFL 8500-05-0010MZ · CP400 ·
-                <a href="https://www.aflglobal.com/en/products/test-and-inspection/fiber-inspection-and-cleaning/fiber-optic-cleaning/one-click-cleaner-mini" target="_blank" rel="noreferrer">AFL specs</a>
-              </div>
+              <div class="part-note">Fujikura One-Click Cleaner MU/LC Mini · Chemtronics CP400</div>
 
               <div class="price-row">
                 <div class="price">$129.95</div>
@@ -537,31 +497,10 @@
           </article>
 
           <article class="product-card" id="kit-universal">
-            <div class="product-media dual">
-              <img
-                class="cleaner"
-                src="assets/2p5mm.webp"
-                alt="Fujikura One-Click Cleaner SC Mini for SC, ST and FC connectors"
-                width="800"
-                height="800"
-                loading="lazy"
-              />
-              <img
-                class="cleaner"
-                src="assets/1p25mm.webp"
-                alt="Fujikura One-Click Cleaner MU/LC Mini for LC and MU connectors"
-                width="1000"
-                height="1000"
-                loading="lazy"
-              />
-              <img
-                class="wipe-box"
-                src="assets/Chemwipes.webp"
-                alt="Chemtronics Chempad CP400 alcohol wipes"
-                width="300"
-                height="200"
-                loading="lazy"
-              />
+            <div class="product-media universal">
+              <img class="kit-cleaner green" src="assets/2p5mm-fixed.webp" alt="Fujikura One-Click Cleaner SC Mini" loading="lazy" />
+              <img class="kit-cleaner blue" src="assets/1p25mm-fixed.webp" alt="Fujikura One-Click Cleaner MU/LC Mini" loading="lazy" />
+              <img class="kit-wipes" src="assets/Chemwipes-fixed.webp" alt="Chemtronics Chempad CP400 wipes" loading="lazy" />
             </div>
 
             <div class="product-body">
@@ -571,7 +510,7 @@
                 <span>2 cleaners</span>
                 <span>50 wipes</span>
               </div>
-              <div class="part-note">AFL 8500-05-0009MZ + 8500-05-0010MZ · CP400</div>
+              <div class="part-note">Fujikura SC Mini + MU/LC Mini · Chemtronics CP400</div>
 
               <div class="price-row">
                 <div class="price">$199.95</div>
@@ -581,22 +520,9 @@
           </article>
 
           <article class="product-card" id="kit-mpo">
-            <div class="product-media">
-              <img
-                src="https://cdn11.bigcommerce.com/s-n7api4sljh/images/stencil/1280x1280/products/648/1774/dry-connector-cleaning-afl-mpo-one-click__00216.1604522108.1280.1280__65310.1626292097.jpg?c=1"
-                alt="AFL One-Click Cleaner for MPO and MTP multi-fiber connectors"
-                width="1000"
-                height="1000"
-                loading="lazy"
-              />
-              <img
-                class="wipe-box"
-                src="assets/Chemwipes.webp"
-                alt="Chemtronics Chempad CP400 alcohol wipes"
-                width="300"
-                height="200"
-                loading="lazy"
-              />
+            <div class="product-media mpo">
+              <img class="mpo-cleaner" src="https://cdn11.bigcommerce.com/s-n7api4sljh/images/stencil/1280x1280/products/648/1774/dry-connector-cleaning-afl-mpo-one-click__00216.1604522108.1280.1280__65310.1626292097.jpg?c=1" alt="AFL One-Click Cleaner for MPO and MTP multi-fiber connectors" loading="lazy" />
+              <img class="kit-wipes" src="assets/Chemwipes-fixed.webp" alt="Chemtronics Chempad CP400 wipes" loading="lazy" />
             </div>
 
             <div class="product-body">
