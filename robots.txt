@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kajin-0.github.io/Photon_Supply/sitemap.xml
