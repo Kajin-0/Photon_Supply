@@ -49,8 +49,10 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255, 255, 255, .96);
+      background: rgba(255, 255, 255, .92);
       border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .nav {
@@ -99,7 +101,7 @@
     }
 
     .hero {
-      padding: 62px 0 46px;
+      padding: 70px 0 54px;
       text-align: center;
     }
 
@@ -118,16 +120,6 @@
       color: var(--muted);
       font-size: clamp(16px, 1.7vw, 19px);
       line-height: 1.45;
-    }
-
-    .trust-line {
-      margin-top: -10px;
-      padding: 0 0 34px;
-      text-align: center;
-      color: #7a7c76;
-      font-size: 12px;
-      line-height: 1.4;
-      letter-spacing: .015em;
     }
 
     .catalog {
@@ -165,12 +157,11 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--surface);
-      transition: border-color .18s ease, transform .18s ease;
+      transition: border-color .18s ease;
     }
 
     .product-card:hover {
       border-color: var(--line-dark);
-      transform: translateY(-2px);
     }
 
     .product-media {
@@ -256,7 +247,7 @@
     }
 
     .price {
-      font-size: 29px;
+      font-size: 27px;
       line-height: 1;
       letter-spacing: -0.035em;
       font-weight: 600;
@@ -284,9 +275,9 @@
 
     .buy-button[aria-disabled="true"] {
       cursor: default;
-      border-color: #d1d2ce;
-      background: #eeeeeb;
-      color: #74766f;
+      border-color: #deded9;
+      background: #f3f3f0;
+      color: #777972;
     }
 
     footer {
@@ -331,7 +322,6 @@
       .price-row { align-items: flex-start; flex-direction: column; }
       .buy-button { width: 100%; padding: 14px 18px; }
       .product-media { height: 300px; }
-      .trust-line { text-align: left; padding-bottom: 28px; }
       .specs { min-height: 0; }
     }
   </style>
@@ -401,8 +391,6 @@
       <h1>Professional fiber cleaning kits.</h1>
       <p>Trusted cleaning tools, bundled for the connector you use.</p>
     </section>
-
-    <div class="trust-line shell">Built around proven Fujikura, Chemtronics, and AFL cleaning products.</div>
 
     <section class="catalog" id="products">
       <div class="shell">
