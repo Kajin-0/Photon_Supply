@@ -24,7 +24,7 @@
   <title>Professional Fiber Cleaning Kits | Photon Supply Co.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -173,11 +173,12 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--surface);
-      transition: border-color .18s ease;
+      transition: border-color .18s ease, box-shadow .18s ease;
     }
 
     .product-card:hover {
       border-color: var(--line-dark);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, .035);
     }
 
     .product-media {
@@ -200,7 +201,7 @@
     }
 
     .product-card:hover .product-media img {
-      transform: scale(1.008);
+      transform: scale(1.015);
     }
 
     .product-body {
@@ -212,9 +213,10 @@
 
     .connector {
       color: #777972;
+      font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
       font-size: 10.5px;
       line-height: 1;
-      letter-spacing: .11em;
+      letter-spacing: .08em;
       text-transform: uppercase;
       font-weight: 600;
     }
